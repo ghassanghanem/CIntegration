@@ -19,12 +19,10 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
         tileSize: 512,
         maximumLevel: 19,
     }),
-    terrainProvider: new Cesium.CesiumTerrainProvider({
-        url: mapboxTerrainUrl,
-        requestVertexNormals: true,
-        requestWaterMask: true,
-        accessToken: mapboxAccessToken,
-    }),
+terrainProvider: new Cesium.MapboxTerrainImageryProvider({
+    mapId: 'mapbox.terrain-rgb',
+    accessToken: mapboxAccessToken,
+}),
 });
 
 const tileset = viewer.scene.primitives.add(

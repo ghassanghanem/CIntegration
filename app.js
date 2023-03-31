@@ -1,5 +1,5 @@
-Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyZThmYzBhNC01MzE3LTRiNjYtYjYzMy1hNzkwOTg5YzE5MmYiLCJpZCI6MTI2MzA4LCJpYXQiOjE2NzczNjUwNzN9.BAp0iKzZzQlQYjwsjb9FIvWkRJ1p6ykJhh1ALL-D5wQ';
-
+const mapboxAccessToken = 'pk.eyJ1IjoiZ2hhc3NhbmdoYW5lbSIsImEiOiJjbGVrbjl5dnUwbjJ0M3ZwZ3QyNGZpZjJhIn0.1KSVkfun4SKcX17dCGei5A'; // Replace with your Mapbox access token
+const mapboxStyle = 'mapbox://styles/mapbox/light-v11';
 
 const viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker: true,
@@ -11,6 +11,10 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
     timeline: true,
     animation: true,
     fullscreenButton: true,
+    imageryProvider: new Cesium.MapboxImageryProvider({
+        mapId: mapboxStyle,
+        accessToken: mapboxAccessToken,
+    }),
 });
 
 const tileset = viewer.scene.primitives.add(

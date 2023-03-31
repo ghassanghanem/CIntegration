@@ -1,7 +1,7 @@
 const mapboxAccessToken = 'pk.eyJ1IjoiZ2hhc3NhbmdoYW5lbSIsImEiOiJjbGVrbGpwZHQwbWt6M3JucHlweXIwYnM4In0.54_EfTPnnFP-6y7JXNmdRw'; 
 const mapboxStyle = 'mapbox://styles/mapbox/light-v11';
 const mapboxTerrainUrl = 'https://api.mapbox.com/v4/mapbox.terrain-rgb';
-
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjY2Q2M2RlYy0wOWEwLTQ2NzMtODU0OS1mZWY2ZDllZWNiYTkiLCJpZCI6MTI2MzA4LCJpYXQiOjE2Nzg4Njg4ODd9.43Pd9TRCe_NjzhDFp8RZc8HCflU-jGT8nm5Z3z6iDlU';
 const viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker: true,
     geocoder: true,

@@ -24,7 +24,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
         requestVertexNormals: true,
         requestWaterMask: true,
         accessToken: mapboxAccessToken,
-    }),
+    })
 
 const tileset = viewer.scene.primitives.add(
     new Cesium.Cesium3DTileset({

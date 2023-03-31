@@ -1,5 +1,6 @@
-const mapboxAccessToken = 'pk.eyJ1IjoiZ2hhc3NhbmdoYW5lbSIsImEiOiJjbGVrbjl5dnUwbjJ0M3ZwZ3QyNGZpZjJhIn0.1KSVkfun4SKcX17dCGei5A'; // Replace with your Mapbox access token
+const mapboxAccessToken = 'pk.eyJ1IjoiZ2hhc3NhbmdoYW5lbSIsImEiOiJjbGVrbGpwZHQwbWt6M3JucHlweXIwYnM4In0.54_EfTPnnFP-6y7JXNmdRw'; 
 const mapboxStyle = 'mapbox://styles/mapbox/light-v11';
+const mapboxTerrainUrl = 'https://api.mapbox.com/v4/mapbox.terrain-rgb';
 
 const viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker: true,
@@ -13,6 +14,12 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
     fullscreenButton: true,
     imageryProvider: new Cesium.MapboxImageryProvider({
         mapId: mapboxStyle,
+        accessToken: mapboxAccessToken,
+    }),
+    terrainProvider: new Cesium.CesiumTerrainProvider({
+        url: mapboxTerrainUrl,
+        requestVertexNormals: true,
+        requestWaterMask: true,
         accessToken: mapboxAccessToken,
     }),
 });

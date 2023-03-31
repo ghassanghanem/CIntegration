@@ -15,7 +15,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
 
 const tileset = viewer.scene.primitives.add(
     new Cesium.Cesium3DTileset({
-        url: Cesium.IonResource.fromAssetId('1597040')
+        url: Cesium.IonResource.fromAssetId('1579192')
     })
 );
 

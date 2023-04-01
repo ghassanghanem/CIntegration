@@ -18,13 +18,11 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
         tileSize: 512,
         maximumLevel: 19,
     }),
-terrainProvider: new Cesium.CesiumTerrainProvider({
-    url: Cesium.IonResource.fromAssetId(1),
-    requestVertexNormals: true,
-    requestWaterMask: true,
-}),
+    terrainProvider: Cesium.createWorldTerrain({
+        requestVertexNormals: true,
+        requestWaterMask: true,
+    }),
 });
-
 viewer.zoomTo(tileset);
 
 // Store the initial view

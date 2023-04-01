@@ -23,11 +23,12 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
         requestWaterMask: true,
     }),
 });
-viewer.zoomTo(tileset);
 
-// Store the initial view
-let initialView;
-
+const tileset = viewer.scene.primitives.add(
+    new Cesium.Cesium3DTileset({
+        url: Cesium.IonResource.fromAssetId('1579192'),
+    }),
+);
 viewer.zoomTo(tileset).then(() => {
     initialView = {
         position: viewer.camera.position.clone(),

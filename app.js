@@ -1,7 +1,6 @@
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjY2Q2M2RlYy0wOWEwLTQ2NzMtODU0OS1mZWY2ZDllZWNiYTkiLCJpZCI6MTI2MzA4LCJpYXQiOjE2Nzg4Njg4ODd9.43Pd9TRCe_NjzhDFp8RZc8HCflU-jGT8nm5Z3z6iDlU';
 const mapboxAccessToken = 'pk.eyJ1IjoiZ2hhc3NhbmdoYW5lbSIsImEiOiJjbGVrbGpwZHQwbWt6M3JucHlweXIwYnM4In0.54_EfTPnnFP-6y7JXNmdRw'; 
 const mapboxStyle = 'mapbox://styles/mapbox/light-v11';
-const mapboxTerrainUrl = 'https://api.mapbox.com/v4/mapbox.terrain-rgb';
 const viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker: true,
     geocoder: true,
@@ -19,18 +18,12 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
         tileSize: 512,
         maximumLevel: 19,
     }),
-terrainProvider: new Cesium.MapboxTerrainImageryProvider({
-    mapId: 'mapbox.terrain-rgb',
-    accessToken: mapboxAccessToken,
+terrainProvider: new Cesium.CesiumTerrainProvider({
+    url: Cesium.IonResource.fromAssetId(1),
+    requestVertexNormals: true,
+    requestWaterMask: true,
 }),
 });
-
-const tileset = viewer.scene.primitives.add(
-    new Cesium.Cesium3DTileset({
-        url: Cesium.IonResource.fromAssetId('1579192'),
-    }),
-);
-
 
 viewer.zoomTo(tileset);
 
